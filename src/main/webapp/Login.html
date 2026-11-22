@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- Unicons -->
+    <link rel="stylesheet"
+        href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #c4c3ca;
+            background-color: #1f2029;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        a {
+            cursor: pointer;
+            transition: all 200ms linear;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .link {
+            color: #c4c3ca;
+        }
+
+        .link:hover {
+            color: #ffeba7;
+        }
+
+        h4 {
+            font-weight: 600;
+        }
+
+        .section {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+
+        .full-height {
+            min-height: 100vh;
+        }
+
+        /* Login Card */
+
+        .card-3d-wrap {
+            position: relative;
+            width: 440px;
+            max-width: 100%;
+            height: 400px;
+            perspective: 800px;
+            margin-top: 40px;
+        }
+
+        .card-3d-wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-style: preserve-3d;
+            transition: all 600ms ease-out;
+        }
+
+        .card-front {
+            width: 100%;
+            height: 100%;
+            background-color: #2a2b38;
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: 300%;
+            position: absolute;
+            border-radius: 6px;
+            left: 0;
+            top: 0;
+            backface-visibility: hidden;
+        }
+
+        .center-wrap {
+            position: absolute;
+            width: 100%;
+            padding: 0 35px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+
+        /* Input Fields */
+
+        .form-group {
+            position: relative;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-style {
+            padding: 13px 20px 13px 55px;
+            height: 48px;
+            width: 100%;
+            font-weight: 500;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 0.5px;
+            outline: none;
+            color: #c4c3ca;
+            background-color: #1f2029;
+            border: none;
+            transition: all 200ms linear;
+            box-shadow: 0 4px 8px rgba(21, 21, 21, .2);
+        }
+
+        .form-style:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ffeba7;
+        }
+
+        .form-style::placeholder {
+            color: #c4c3ca;
+            opacity: 0.7;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 0;
+            left: 18px;
+            height: 48px;
+            font-size: 24px;
+            line-height: 48px;
+            text-align: left;
+            color: #ffeba7;
+            pointer-events: none;
+        }
+
+        /* Login Button */
+
+        .btn {
+            border-radius: 4px;
+            height: 44px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 200ms linear;
+            padding: 0 30px;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: none;
+            background-color: #ffeba7;
+            color: #102770;
+            box-shadow: 0 8px 24px rgba(255, 235, 167, .2);
+            cursor: pointer;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background-color: #102770;
+            color: #ffeba7;
+            box-shadow: 0 8px 24px rgba(16, 39, 112, .2);
+        }
+
+        /* Responsive Design */
+
+        @media (max-width: 480px) {
+            .card-3d-wrap {
+                width: 100%;
+                height: 380px;
+            }
+
+            .center-wrap {
+                padding: 0 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="section">
+        <div class="container">
+
+            <div class="row full-height justify-content-center">
+
+                <div class="col-12 text-center align-self-center py-5">
+
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+
+                        <div class="card-3d-wrap mx-auto">
+
+                            <div class="card-3d-wrapper">
+
+                                <div class="card-front">
+
+                                    <div class="center-wrap">
+
+                                        <div class="section text-center">
+
+                                            <h4 class="mb-4 pb-3">
+                                                Log In
+                                            </h4>
+
+                                            <form action="/login" method="POST">
+
+                                                <!-- Username -->
+
+                                                <div class="form-group">
+
+                                                    <input
+                                                        type="text"
+                                                        name="uid"
+                                                        class="form-style"
+                                                        placeholder="Your Username"
+                                                        id="uid"
+                                                        autocomplete="username">
+
+                                                    <i class="input-icon uil uil-user"></i>
+
+                                                </div>
+
+                                                <!-- Password -->
+
+                                                <div class="form-group mt-2">
+
+                                                    <input
+                                                        type="password"
+                                                        name="password"
+                                                        class="form-style"
+                                                        placeholder="Your Password"
+                                                        id="password"
+                                                        autocomplete="current-password">
+
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+
+                                                </div>
+
+                                                <!-- Submit -->
+
+                                                <button type="submit" class="btn mt-4">
+                                                    Submit
+                                                </button>
+
+                                            </form>
+
+                                            <p class="mb-0 mt-4 text-center">
+                                                <a href="/forgot-password" class="link">
+                                                    Forgot your password?
+                                                </a>
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
